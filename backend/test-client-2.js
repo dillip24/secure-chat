@@ -20,7 +20,7 @@ const currentUserToken = USER_B_TOKEN;
 // const currentUserToken = USER_B_TOKEN;
 
 // Connect to the server, passing the token for authentication
-const socket = io('http://localhost:3000', {
+const socket = io('http://localhost:6969', {
   auth: {
     token: currentUserToken
   }

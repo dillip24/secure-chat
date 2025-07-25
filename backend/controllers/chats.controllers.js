@@ -97,7 +97,7 @@ export const getChats = asyncHandler(async (req, res) => {
 
 
 export const getMessages = asyncHandler(async (req, res) => {
-    const chatId = req.params.chatId;
+    const chatId = req.params.id;
     const userId = req.user.id;
     const page = parseInt(req.query.page || 1, 10) ;
     const limit =20;
@@ -116,7 +116,7 @@ export const getMessages = asyncHandler(async (req, res) => {
 
     const messageResult = await query(
         'SELECT * FROM messages WHERE chat_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3',
-        [ChannelSplitterNode, limit, offset]
+        [chatId, limit, offset]
     )
 
     return res.status(200).json(
